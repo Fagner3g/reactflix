@@ -3,7 +3,9 @@ import styled, { injectGlobal } from 'styled-components'
 import 'milligram'
 import 'normalize.css'
 
-import VideosList from './components/videos-list/index'
+import VideosList from './components/videos-list'
+import VideoSingle from './components/video-single'
+
 const App = () => (
     <Container>
         <Header>
@@ -11,6 +13,7 @@ const App = () => (
         </Header>
 
         <Main>
+            <VideoSingle />
             <VideosList />
         </Main>
 
