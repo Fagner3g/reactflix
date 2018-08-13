@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "axios": "^0.18.0",
+    "milligram": "^1.3.0",
+    "normalize.css": "^8.0.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "styled-components": "^3.4.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "css-loader": "^1.0.0",
+    "deep-freeze": "0.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "jest": "^23.4.2",
+    "jest-cli": "^23.4.2",
+    "react-test-renderer": "^16.4.2",
+    "redux-thunk": "^2.3.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-server": "^0.1.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "test": "jest --watchAll --coverage"
+  },
+  "jest": {
+    "testURL": "http://localhost/"
+  }
+}
