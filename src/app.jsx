@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
-import 'milligram'
 import 'normalize.css'
+import 'milligram'
 
 import VideosList from './components/videos-list'
 import VideoSingle from './components/video-single'
