@@ -10,13 +10,24 @@ const INITIAL_STATE = {}
 const db = firebase.database()
 const videos = db.ref('videos')
 
-// videos.on('value', (snapshot) => {
-//     console.log('snapshot: ', snapshot.val())
-// }, (erro) => {
-//     console.log('Error: ', erro)
+
+//o set sobrescreve a base, deve-se utilizar uma váriavel com método push()
+// videos.set({
+//     id: 'OM5p7AZVJy0',
+//     title: 'Aprenda React'
 // })
-videos.once('value').then((snapshot) => {
-    console.log('Snapshot:', snapshot.val())
+
+const videosJs = videos.push()
+
+videosJs.set({
+    id: '123',
+    title: 'Teste de Adição no Firebase'
+})
+
+videos.on('value', (snapshot) => {
+    console.log('snapshot: ', snapshot.val())
+}, (erro) => {
+    console.log('Error: ', erro)
 })
 
 const store = configureStore(INITIAL_STATE)
