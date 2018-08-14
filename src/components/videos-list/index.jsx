@@ -4,14 +4,16 @@ import { connect } from 'react-redux'
 
 import Play from '../play'
 
-const VideosList = ({ videos }) => (
+const VideosList = ({ videos, handleClick }) => (
     <Container>
         {Object.keys(videos).map((id) => (
             <Video key={id}>
-                <VideoThumb>
-                    <PlayStyled />
-                </VideoThumb>
-                <VideoTitle>{videos[id].title}</VideoTitle>
+                <VideoLink href="#" onClick={handleClick(id)}>
+                    <VideoThumb>
+                        <PlayStyled />
+                    </VideoThumb>
+                    <VideoTitle>{videos[id].title}</VideoTitle>
+                </VideoLink>
             </Video>
         ))}
     </Container>
@@ -28,6 +30,10 @@ const Video = styled.section`
         transform: scale(1.5);
     }
 `
+const VideoLink = styled.a`
+    color: inherit;
+`
+
 const Container = styled.div`
     Display: flex;
     flex-wrap: wrap;
@@ -53,4 +59,11 @@ const mapStateToProps = (state) => ({
     videos: state.videos
 })
 
-export default connect(mapStateToProps)(VideosList)
+const mapDispatchToProps = (dispatch) => ({
+    handleClick: (id) => (e) => {
+        e.preventDefault()
+        console.log(id)
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideosList)
