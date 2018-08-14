@@ -17,11 +17,10 @@ const videos = db.ref('videos')
 //     title: 'Aprenda React'
 // })
 
-const videosJs = videos.push()
+const videosJs = videos.child('-LJsJ_wkrRsw-Q1kKJ3k')
 
-videosJs.set({
-    id: '123',
-    title: 'Teste de Adição no Firebase'
+videosJs.update({
+    title: 'Teste de atualização'
 })
 
 videos.on('value', (snapshot) => {
