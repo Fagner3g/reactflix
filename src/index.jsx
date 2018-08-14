@@ -4,23 +4,15 @@ import { Provider } from 'react-redux'
 
 import App from './app'
 import configureStore from './redux-flow/configure-store'
+import { db } from './config/firebase'
 
 const INITIAL_STATE = {}
 
-const db = firebase.database()
 const videos = db.ref('videos')
 
-
-//o set sobrescreve a base, deve-se utilizar uma váriavel com método push()
-// videos.set({
-//     id: 'OM5p7AZVJy0',
-//     title: 'Aprenda React'
-// })
-
-const videosJs = videos.child('-LJsJ_wkrRsw-Q1kKJ3k')
-
-videosJs.update({
-    title: 'Teste de atualização'
+videos.child('123').set({
+    id: 123441,
+    title: 'Teste add Local'
 })
 
 videos.on('value', (snapshot) => {
