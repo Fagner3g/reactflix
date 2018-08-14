@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { addVideo } from '../../redux-flow/reducers/videos/action-creators'
+
+import { registerVideo } from '../../redux-flow/reducers/videos/action-creators'
+
 const RegisterVideo = ({ onSubmit }) => (
     <Form onSubmit={onSubmit}>
         <h2>Cadastrar vídeo</h2>
@@ -24,15 +26,12 @@ const mapDispatchToProps = (dispatch) => ({
     onSubmit: (e) => {
         e.preventDefault()
 
-        // const id = e.target.id.value
-        // const title = e.target.title.value
-
-        //Ou utilizando destruct
         const {
             id: { value: id },
             title: { value: title }
         } = e.target
-        dispatch(addVideo({ id, title }))
+
+        dispatch(registerVideo({ id, title }))
     }
 })
 export default connect(null, mapDispatchToProps)(RegisterVideo)
