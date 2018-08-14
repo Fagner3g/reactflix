@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import 'normalize.css'
 import 'milligram'
+import { connect } from 'react-redux'
 
 import VideosList from './components/videos-list'
 import VideoSingle from './components/video-single'
@@ -9,11 +10,11 @@ import RegisterVideo from './components/register-video'
 import Header from './components/header'
 import { headerHeight, footerHeight } from './utils/constants';
 import Footer from './components/footer'
-const App = () => (
+const App = ({ isRegisterVideoFormOpened }) => (
     <Container>
         <Header />
         <Main>
-            <RegisterVideo />
+            {isRegisterVideoFormOpened && <RegisterVideo />}
             <VideoSingle />
             <VideosList />
         </Main>
@@ -34,6 +35,8 @@ const Main = styled.main`
     min-height: calc(100% - ${headerHeight} - ${footerHeight});
 `
 
+const mapStateToPros = (state) => ({
+    isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+})
 
-
-export default App
+export default connect(mapStateToPros)(App)
